@@ -59,7 +59,7 @@ void InputData(SINGER *s)
         scanf("%d",&(h->number));
         getchar();
         printf("请输入成绩:\n");
-        for(n=0;n<9;n++)
+        for(n=0;n<10;n++)
         {
             printf("请输入第%d个评委的打分:",n+1);
             scanf("%f",&(h->score[n]));
@@ -102,7 +102,7 @@ void CalculateData(SINGER *s)
         {
             (h->average)+=(h->score[n]);
         }
-        h->average=(float)((h->average-max-min)/7.0);
+        h->average=(float)((h->average-max-min)/8.0);
         h=h->next;
     }
 }
@@ -187,7 +187,7 @@ void OutputFinal(SINGER *s)
         {
             return;
         }
-        printf("%d %d %s %.3f",n,h->number,h->name,h->average);
+        printf("%d  %d  %s  %.3f",n,h->number,h->name,h->average);
         n++;
         printf("\n");
         h=h->next;
@@ -300,7 +300,27 @@ int main(void)
         else if(instruct==4)
         {
             SortData(head,SingerNumber);
-            printf("排序完成)
+            printf("排序完成,请继续操作:\n");
+            printf("********************************************************\n");
+            printf("********************************************************\n");
+        }
+        else if(instruct==5)
+        {
+            OutputFinal(head);
+            printf("输出完成，请继续操作:\n");
+            printf("********************************************************\n");
+            printf("********************************************************\n");
+        }
+        else if(instruct==6)
+        {
+            break;
+        }
+        else
+        {
+            printf("输入有误，请重新输入:\n");
+            printf("********************************************************\n");
+            printf("********************************************************\n");
         }
     }
+    return 0;
 }
